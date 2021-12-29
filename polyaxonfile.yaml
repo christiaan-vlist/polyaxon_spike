@@ -19,5 +19,5 @@ run:
     image: polyaxon/polyaxon-spike
     command: [python3, "{{ globals.artifacts_path }} + /polyaxon-spike/model.py"]
       args: [
-    "--epochs={{ epochs }}"
-  ]
+      "--epochs={{ epochs }}"
+    ]
