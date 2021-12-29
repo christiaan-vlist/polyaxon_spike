@@ -1,0 +1,23 @@
+
+version: 1.1
+kind: component
+name: polyaxon-spike
+description: Minimum information to run this TF.Keras example
+tags: [spike]
+
+inputs:
+- {name: epochs, type: int}
+outputs:
+- {name: loss, type: float}
+- {name: accuracy, type: float}
+
+run:
+  kind: job
+  init:
+  - git: {url: "https://github.com/christiaan-vlist/polyaxon_spike"}
+  container:
+    image: polyaxon/polyaxon-spike
+    command: [python3, "{{ globals.artifacts_path }} + /polyaxon-spike/model.py"]
+      args: [
+    "--epochs={{ epochs }}"
+  ]
