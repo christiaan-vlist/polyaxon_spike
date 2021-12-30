@@ -1,0 +1,12 @@
+
+version: 1.1
+kind: component
+name: polyaxon-spike
+tags: [spike]
+
+run:
+  kind: job
+  connections: [docker-connection]
+  container:
+    image: europe-west4-docker.pkg.dev/sandbox-christiaan/engine-image-repository/recommendation-engine-test:latest
+    command: [rec-engine]

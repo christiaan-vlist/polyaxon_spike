@@ -1,2 +1,7 @@
-dns:
-  backend: "coredns"
+connections:
+  - name: docker-connection
+    kind: registry
+    schema:
+      url: europe-west4-docker.pkg.dev/sandbox-christiaan/engine-image-repository/recommendation-engine-test:latest
+    secret:
+      name: polyaxon-key
