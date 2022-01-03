@@ -3,7 +3,7 @@ import argparse
 # Polyaxon
 from polyaxon import tracking
 
-import train
+from .train import model
 
 def run():
 
@@ -13,7 +13,7 @@ def run():
     # Train and eval the model with given parameters.
     # Polyaxon
     model_path = "model.joblib"
-    metrics = train.model.train(model_path=model_path)
+    metrics = model.train(max_train_timestamp=None, hyperparameters={}, model_path=model_path)
 
     # Logging metrics to Polyaxon
     print("Testing metrics: {}", metrics)

@@ -105,10 +105,7 @@ class TopNModel(abc.ABC):
 
         self.hyperparameters = hyperparameters or {}
 
-        model_path = utilities.get_model_path(
-            self.data_loader.__class__, self.__class__, hyperparameters=self.hyperparameters
-        )
-        self.name = model_path.stem
+        self.name = "test"
 
     @abc.abstractmethod
     def fit(self) -> TopNModel:
