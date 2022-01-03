@@ -16,10 +16,10 @@ def run():
     metrics = model.train(max_train_timestamp=None, hyperparameters={}, model_path=model_path)
 
     # Logging metrics to Polyaxon
-    print("Testing metrics: {}", metrics)
+    print(f"Testing metrics: {metrics}")
 
     # Polyaxon
-    tracking.log_metrics(**metrics)
+    tracking.log_metrics(metrics)
 
     # Logging the model
     tracking.log_model(

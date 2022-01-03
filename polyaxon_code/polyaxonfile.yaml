@@ -10,4 +10,4 @@ run:
   container:
     image: eu.gcr.io/sandbox-christiaan/polyaxon-spike:latest
     workingDir: "{{ globals.artifacts_path }}/polyaxon_spike"
-    command: ["python", "-u", "polyaxon_code"]
+    command: ["python", "-u", "-m", "polyaxon_code"]
