@@ -18,7 +18,7 @@ ranker = load_model("./model.joblib")
 
 
 def predict(features: np.ndarray) -> Dict:
-    return ranker.model.predict(features[0], features[1])
+    return ranker.model.predict(features[0], features[1], features[2])
 
 
 @app.route("/api/v1/predict", methods=["POST"])
