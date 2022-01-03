@@ -16,5 +16,5 @@ run:
   - artifacts: {"files": [["{{ uuid }}/outputs/model/model.joblib", "{{ globals.artifacts_path }}/polyaxon_spike/polyaxon_code/flask_serving/model.joblib"]]}
   container:
     image: eu.gcr.io/sandbox-christiaan/polyaxon-spike:latest
-    workingDir: "{{ globals.artifacts_path }}/polyaxon_spike/polyaxon_code/flask_serving"
-    command: [python, app.py]
+    workingDir: "{{ globals.artifacts_path }}/polyaxon_spike"
+    command: [python, polyaxon_code/flask_serving/app.py]

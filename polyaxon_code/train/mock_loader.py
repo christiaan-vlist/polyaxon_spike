@@ -10,7 +10,7 @@ import pandas
 import scipy.stats
 import tqdm
 
-from .abstract_loader import DataLoader, LoaderType
+from abstract_loader import DataLoader, LoaderType
 
 
 class MockProfileLoader(DataLoader):

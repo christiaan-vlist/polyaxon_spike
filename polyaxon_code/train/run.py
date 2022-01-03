@@ -3,9 +3,9 @@ import argparse
 # Polyaxon
 from polyaxon import tracking
 
-from .train import model
+import model
 
-def run():
+if __name__ == "__main__":
 
     # Polyaxon
     tracking.init()

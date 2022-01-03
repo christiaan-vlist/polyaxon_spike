@@ -9,5 +9,5 @@ run:
   - git: {"url": "https://github.com/christiaan-vlist/polyaxon_spike"}
   container:
     image: eu.gcr.io/sandbox-christiaan/polyaxon-spike:latest
-    workingDir: "{{ globals.artifacts_path }}/polyaxon_spike"
-    command: ["python", "-u", "-m", "polyaxon_code"]
+    workingDir: "{{ globals.artifacts_path }}/polyaxon_spike/polyaxon_code/train"
+    command: ["python", "-u", "run.py"]

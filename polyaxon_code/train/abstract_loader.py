@@ -9,7 +9,7 @@ import typing
 
 import pandas
 
-from ..utilities import const
+from const import get_dataframe_dtypes
 
 
 class LoaderType(str, enum.Enum):
@@ -86,7 +86,7 @@ class DataLoader(abc.ABC):
 
         i = self._load_interactions(from_dt, until_dt, num_records)
         return i.astype(
-            const.get_dataframe_dtypes(),
+            get_dataframe_dtypes(),
             copy=False,
         )
 

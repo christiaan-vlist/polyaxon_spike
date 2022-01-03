@@ -8,8 +8,7 @@ import datetime
 import enum
 import typing
 
-from .. import data_loaders
-from .. import utilities
+from abstract_loader import DataLoader, LoaderType
 
 
 class TopNOutputKeys(str, enum.Enum):
@@ -47,7 +46,7 @@ class TrainedTopNModel:
     name: str
     model: TopNModel
     model_type: ModelTypeEnum
-    input_type: data_loaders.LoaderType
+    input_type: LoaderType
     output_type: TopNOutputKeys
     timestamp: datetime.datetime
 
@@ -83,11 +82,11 @@ class TopNModel(abc.ABC):
     output_to_field: TopNOutputKeys
 
     # set during initialization
-    output_from_field: data_loaders.LoaderType
+    output_from_field: LoaderType
     name: str
 
     @typing.final
-    def __init__(self, data_loader: data_loaders.DataLoader, hyperparameters: dict[str, typing.Any] | None = None):
+    def __init__(self, data_loader: DataLoader, hyperparameters: dict[str, typing.Any] | None = None):
         """Initialize a top-n model with the dataloader.
 
         Params:

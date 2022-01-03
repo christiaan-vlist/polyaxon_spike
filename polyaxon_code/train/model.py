@@ -11,8 +11,8 @@ import logging
 from typing import Any
 
 import joblib
-from ..data_loaders.mock_loader import MockProfileLoader
-from ..top_n_models.DemoUserEpisodes import DemoUserEpisodes
+from mock_loader import MockProfileLoader
+from DemoUserEpisodes import DemoUserEpisodes
 
 
 def train(

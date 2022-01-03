@@ -3,7 +3,7 @@ from __future__ import annotations
 import datetime
 import random
 
-from .abstract_top_n_model import ModelTypeEnum, TopNModel, TopNOutputKeys
+from abstract_top_n_model import ModelTypeEnum, TopNModel, TopNOutputKeys
 
 
 class DemoUserEpisodes(TopNModel):
