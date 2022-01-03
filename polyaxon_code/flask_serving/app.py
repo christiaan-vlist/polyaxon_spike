@@ -27,6 +27,7 @@ def get_features(request_data: Dict[str, float]) -> np.ndarray:
 
 
 def predict(features: np.ndarray) -> Dict:
+    print(features)
     return ranker.model.predict(features[0], features[1])
 
 
