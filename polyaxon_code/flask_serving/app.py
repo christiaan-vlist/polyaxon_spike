@@ -16,16 +16,6 @@ app = Flask(__name__)
 ranker = load_model("./model.joblib")
 
 
-def get_features(request_data: Dict[str, float]) -> np.ndarray:
-    return np.array(
-        [
-            request_data["from_ids"],
-            request_data["n"],
-        ],
-        ndmin=2,
-    )
-
-
 def predict(features: np.ndarray) -> Dict:
     return ranker.model.predict(features[0], features[1])
 
@@ -33,8 +23,7 @@ def predict(features: np.ndarray) -> Dict:
 @app.route("/api/v1/predict", methods=["POST"])
 def get_prediction():
     request_data = request.json
-    features = get_features(request_data)
-    app.logger.info(features)
+    features = [[request_data["from_ids"]], int(request_data["n"])]
     return make_response(jsonify(predict(features)))
 
 
