@@ -4,6 +4,7 @@ import joblib
 import numpy as np
 from flask import Flask, jsonify, make_response, request
 
+import abstract_top_n_model
 
 def load_model(model_path: str):
     model = open(model_path, "rb")
