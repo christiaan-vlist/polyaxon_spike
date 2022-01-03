@@ -11,8 +11,8 @@ import logging
 from typing import Any
 
 import joblib
-from polyaxon_spike.data_loaders.mock_loader import MockProfileLoader
-from polyaxon_spike.top_n_models.DemoUserEpisodes import DemoUserEpisodes
+from ..data_loaders.mock_loader import MockProfileLoader
+from ..top_n_models.DemoUserEpisodes import DemoUserEpisodes
 
 
 def train(

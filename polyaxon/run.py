@@ -3,9 +3,9 @@ import argparse
 # Polyaxon
 from polyaxon import tracking
 
-from model import train
+import train
 
-if __name__ == "__main__":
+def run():
 
     # Polyaxon
     tracking.init()
@@ -13,7 +13,7 @@ if __name__ == "__main__":
     # Train and eval the model with given parameters.
     # Polyaxon
     model_path = "model.joblib"
-    metrics = train(model_path=model_path)
+    metrics = train.model.train(model_path=model_path)
 
     # Logging metrics to Polyaxon
     print("Testing metrics: {}", metrics)
