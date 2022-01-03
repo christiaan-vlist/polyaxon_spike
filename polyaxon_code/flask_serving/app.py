@@ -3,6 +3,7 @@ from typing import Dict
 import joblib
 import numpy as np
 from flask import Flask, jsonify, make_response, request
+import datetime
 
 import abstract_top_n_model
 import DemoUserEpisodes
@@ -23,7 +24,7 @@ def predict(features: np.ndarray) -> Dict:
 @app.route("/api/v1/predict", methods=["POST"])
 def get_prediction():
     request_data = request.json
-    features = [[request_data["from_ids"]], int(request_data["n"])]
+    features = [datetime.datetime.now(), [request_data["from_ids"]], int(request_data["n"])]
     return make_response(jsonify(predict(features)))
 
 
