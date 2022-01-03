@@ -5,9 +5,6 @@ import numpy as np
 from flask import Flask, jsonify, make_response, request
 
 
-IRIS_CLASS_MAPPING = {0: "setosa", 1: "versicolor", 2: "virginica"}
-
-
 def load_model(model_path: str):
     model = open(model_path, "rb")
     return joblib.load(model)
