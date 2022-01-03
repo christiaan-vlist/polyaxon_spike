@@ -5,6 +5,7 @@ import numpy as np
 from flask import Flask, jsonify, make_response, request
 
 import abstract_top_n_model
+import DemoUserEpisodes
 
 def load_model(model_path: str):
     model = open(model_path, "rb")
@@ -26,7 +27,7 @@ def get_features(request_data: Dict[str, float]) -> np.ndarray:
 
 
 def predict(features: np.ndarray) -> Dict:
-    return ranker.predict(features[0], features[1])
+    return ranker.model.predict(features[0], features[1])
 
 
 @app.route("/api/v1/predict", methods=["POST"])
