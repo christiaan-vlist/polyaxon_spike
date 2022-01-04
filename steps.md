@@ -1,4 +1,4 @@
-### Start-up
+### Setup
 
 Go to dir
 
@@ -20,7 +20,7 @@ Check training progress in the CLI or the GUI: http://localhost:8000/ui/default/
 
 Training a model saves it in ./model.joblib for now
 
-(alternatively use 6dbb7848d57441528410e03143d7b3c9 as uuid)
+(alternatively use ac6c6da96aeb43de8a824aee04cd3a54 as uuid)
 
 ### Serve the model
 
@@ -38,14 +38,14 @@ Check if server is doing well. Can use the GUI: http://localhost:8000/ui/default
 polyaxon ops service --external --url -p ml-serving -uid <UUID FROM PREV STEP> 
 ```
 
-(alternatively use 2bb891ae232a4501b643a7c2758b2c0d as service uuid: 
+(alternatively use 7cad4aa8bc5a49cd8503d993ce6a20bd as service uuid: 
 
 ```bash
-polyaxon run -f flask_serving/polyaxonfile.yaml -p ml-serving -P uuid=6dbb7848d57441528410e03143d7b3c9
+polyaxon run -f flask_serving/polyaxonfile.yaml -p ml-serving -P uuid=ac6c6da96aeb43de8a824aee04cd3a54
 ```
 
 ```bash
-polyaxon ops service --external --url -p ml-serving -uid 2bb891ae232a4501b643a7c2758b2c0d
+polyaxon ops service --external --url -p ml-serving -uid 7cad4aa8bc5a49cd8503d993ce6a20bd
 ```
 )
 
@@ -60,7 +60,11 @@ curl localhost:8000/rewrite-services/v1/polyaxon/default/ml-serving/runs/<UUID O
 Ready made:
 
 ```
-curl localhost:8000/rewrite-services/v1/polyaxon/default/ml-serving/runs/2bb891ae232a4501b643a7c2758b2c0d/api/v1/predict --request POST \
+curl localhost:8000/rewrite-services/v1/polyaxon/default/ml-serving/runs/7cad4aa8bc5a49cd8503d993ce6a20bd/api/v1/predict --request POST \
     --header "Content-Type: application/json" \
     --data '{"from_ids": "test_christiaan", "n":"5"}'
 ```
+
+### Scheduling
+
+Is relatively easy I think (see train/polyaxonfile_schedule.yaml), but can only be run with enterprise.
